@@ -1,4 +1,7 @@
+@component('mail::message')
 <h1>Primeiro Email</h1>
-
-
-<p>Você jogou fora {{$user->name }}, o amor que eu te g</p>
+@component('mail::button', ['url' => 'http://localhost/projectLaravel/ep14/public/envio-email'])
+    Garantir Vaga !    
+@endcomponent
+<p>Email com Laravel com usuário piloto: <strong>{{$user->name }}</strong>, Obrigado pelos testes.</p>    
+@endcomponent

@@ -35,7 +35,8 @@ class laravelTips extends Mailable
         //address and name
         $this->to($this->user->email, $this->user->name);
         //se passa array sociativa para receber os dados na view
-        return $this->view('mail.laravelTips', [ 
+        //o markdown começa a trabalhar com os componentes que foi feito a importação do php artisan vendor:publish --tag=laravel-mail
+        return $this->markdown('mail.laravelTips', [ 
             'user' => $this->user
         ]);
     }

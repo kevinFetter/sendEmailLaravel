@@ -21,10 +21,10 @@ Route::get('envio-email', function(){
 
     //cria um objeto vazio
     $user = new stdClass();
-    $user->name = 'Kevin Teste email';
+    $user->name  = 'Kevin Teste email';
     $user->email = 'kevin.fetter30@gmail.com';
 
     //return new \App\Mail\laravelTips($user);
-    //Para que eu possa efetuar o disparo, deve ser posto:
+    //Para que eu possa efetuar o disparo do envio, deve ser posto:
     \Illuminate\Support\Facades\Mail::send(new \App\Mail\laravelTips($user));
 });
