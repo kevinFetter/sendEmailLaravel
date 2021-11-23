@@ -26,5 +26,9 @@ Route::get('envio-email', function(){
 
     //return new \App\Mail\laravelTips($user);
     //Para que eu possa efetuar o disparo do envio, deve ser posto:
-    \Illuminate\Support\Facades\Mail::send(new \App\Mail\laravelTips($user));
+    //o queue joga pra fila 
+    //tem também Mail::send
+    //\Illuminate\Support\Facades\Mail::queue(new \App\Mail\laravelTips($user));
+    //passar para disperar email somente depois de um tempo determinado
+    \App\Jobs\laravelTips::dispatch($user)->delay(now()->addSeconds('15'));
 });
