@@ -18,5 +18,13 @@ Route::get('/', function () {
 });
 
 Route::get('envio-email', function(){
-    return new \App\Mail\laravelTips();
+
+    //cria um objeto vazio
+    $user = new stdClass();
+    $user->name = 'Kevin Teste email';
+    $user->email = 'kevin.fetter30@gmail.com';
+
+    //return new \App\Mail\laravelTips($user);
+    //Para que eu possa efetuar o disparo, deve ser posto:
+    \Illuminate\Support\Facades\Mail::send(new \App\Mail\laravelTips($user));
 });
